@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game3D Sistema de Cobro</title>
+  </head>
+  <body>
+    <style>
+      .titulo {
+        text-align: center;
+        color: blue;
+        margin-bottom: 6rem;
+      }
+      .container {
+        margin: 0 auto;
+      }
+      .form {
+        padding: 2rem;
+        background-color: rgb(121, 121, 212);
+        width: 90%;
+        color: white;
+        border-radius: 2%;
+      }
+      .edad {
+        margin: 1rem auto;
+        width: 80%;
+        padding: 1.5rem;
+        border-radius: 1%;
+        margin: 2rem;
+      }
+      .mensaje {
+        text-align: center;
+        color: red;
+      }
+    </style>
+    <h1 class="titulo">Disfruta en nuestras Salas de Juegos</h1>
+    <form action="" class="form container">
+      <label for="edad" class="label">Edad</label>
+      <input class="edad" type="number" value="edad" min="0" />
+      <button type="submit" class="boton">Enviar Edad</button>
+    </form>
+    <h2 class="mensaje"></h2>
+    <script>
+      const input = document.querySelector('.edad');
+      const mensaje = document.querySelector('.mensaje');
+      const form = document.querySelector('.form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (input.value < 4) {
+          mensaje.textContent = 'Entra Gratis';
+          mensaje.style.color = 'blue';
+        } else if (input.value >= 4 && input.value < 18) {
+          mensaje.textContent = 'Debe pagar 8500$';
+          mensaje.style.color = 'green';
+        } else if (input.value >= 18) {
+          mensaje.textContent = 'Debe Pagar 12500$';
+        }
+      });
+    </script>
+  </body>
+</html>
